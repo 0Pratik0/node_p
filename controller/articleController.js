@@ -19,7 +19,7 @@ const createArticle = async (req, res) => {
 const getArticle = async (req, res) => {
   try {
     const article = await Article.find(req.body);
-    console.log(req.params);
+
     res.status(200).json({
       status: "success",
       data: {
@@ -57,7 +57,6 @@ const updateArticle = async (req, res) => {
       new: true, //database naya lekdincha
       runValidators: true, //specify gareko validators haru true cha vane matrai
     });
-    console.log(req.params);
     res.status(200).json({
       status: "success",
       data: {
@@ -71,4 +70,25 @@ const updateArticle = async (req, res) => {
     });
   }
 };
-export { createArticle, getArticle, getOneArticle, updateArticle };
+const deleteArticle = async (req, res) => {
+  try {
+    const article = await Article.findByIdAndDelete(req.params.id, req.body);
+
+    res.status(200).json({
+      status: "success",
+      data: {},
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "fail",
+      message: err,
+    });
+  }
+};
+export {
+  createArticle,
+  getArticle,
+  getOneArticle,
+  updateArticle,
+  deleteArticle,
+};
