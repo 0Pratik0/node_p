@@ -10,7 +10,7 @@ const createArticle = async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(400).json({
+    res.status(404).json({
       status: "fail",
       message: err,
     });
@@ -27,7 +27,7 @@ const getArticle = async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(400).json({
+    res.status(404).json({
       status: "fail",
       message: err,
     });
@@ -44,7 +44,7 @@ const getOneArticle = async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(400).json({
+    res.status(404).json({
       status: "fail",
       message: err,
     });
@@ -64,7 +64,7 @@ const updateArticle = async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(400).json({
+    res.status(404).json({
       status: "fail",
       message: err,
     });
@@ -79,7 +79,7 @@ const deleteArticle = async (req, res) => {
       data: {},
     });
   } catch (err) {
-    res.status(400).json({
+    res.status(404).json({
       status: "fail",
       message: err,
     });
