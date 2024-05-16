@@ -8,10 +8,18 @@ const findArticle = async (req, res) => {
   });
 };
 const helloArticle = async (req, res) => {
-   const articles = await Article.find();
+  const articles = await Article.find();
   res.status(200).render("hellow", {
-     articles,
+    articles,
   });
 };
 
-export { findArticle, helloArticle };
+const viewArticle = async (req, res) => {
+  const articles = await Article.find();
+
+  res.status(200).render("view", {
+    articles,
+  });
+};
+
+export { findArticle, helloArticle, viewArticle };
