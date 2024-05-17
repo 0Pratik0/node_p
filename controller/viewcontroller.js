@@ -22,4 +22,18 @@ const viewArticle = async (req, res) => {
   });
 };
 
-export { findArticle, helloArticle, viewArticle };
+const createeArticle = async (req, res) => {
+  const articles = await Article.find();
+
+  res.status(200).render("create", {
+    articles,
+  });
+};
+const editArticle = async (req, res) => {
+  const articles = await Article.find();
+
+  res.status(200).render("edit", {
+    articles,
+  });
+};
+export { findArticle, helloArticle, viewArticle, createeArticle, editArticle };
