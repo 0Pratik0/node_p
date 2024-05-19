@@ -1,11 +1,7 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  script(src='https://cdn.tailwindcss.com')
-  title Document
-body.bg-slate-700
-     each article in articles 
+extends overview 
+
+block content 
+    body.bg-slate-700
         div
             .mr-10
                 .w-full.bg-white.rounded-b-lg.border-t-8.border-green-400.px-4.py-5.mx-4.mt-4.flex.flex-col.justify-around.shadow-md
@@ -25,3 +21,6 @@ body.bg-slate-700
         .flex.flex-col.justify-center.items-center.mt-10
             p.px-10.text-white(class='text-[10px] sm:text-[12px]') Written By:
             p.text-xl.font-semibold.text-white.font-serif(class='sm:text-2xl')=article.name 
+
+
+

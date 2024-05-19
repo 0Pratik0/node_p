@@ -14,26 +14,26 @@ const helloArticle = async (req, res) => {
   });
 };
 
-const viewArticle = async (req, res) => {
-  const articles = await Article.find();
-
+const getsingleArticle = async (req, res) => {
+  const article = await Article.findOne({ slug: req.params.slug });
   res.status(200).render("view", {
-    articles,
+    article,
   });
 };
-
 const createeArticle = async (req, res) => {
-  const articles = await Article.find();
-
-  res.status(200).render("create", {
-    articles,
-  });
+  res.status(200).render("create");
 };
-const editArticle = async (req, res) => {
-  const articles = await Article.find();
+const editsingleArticle = async (req, res) => {
+  const article = await Article.findOne({ slug: req.params.slug });
 
   res.status(200).render("edit", {
-    articles,
+    article,
   });
 };
-export { findArticle, helloArticle, viewArticle, createeArticle, editArticle };
+export {
+  findArticle,
+  helloArticle,
+  getsingleArticle,
+  createeArticle,
+  editsingleArticle,
+};

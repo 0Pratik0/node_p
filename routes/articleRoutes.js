@@ -3,9 +3,9 @@ import { Article } from "../models/articleModel.js";
 import {
   findArticle,
   helloArticle,
-  viewArticle,
+  getsingleArticle,
   createeArticle,
-  editArticle,
+  editsingleArticle,
 } from "../controller/viewcontroller.js";
 import {
   createArticle,
@@ -24,4 +24,6 @@ export default router;
 // router.route("/:id").patch(updateArticle);
 // router.route("/:id").delete(deleteArticle);
 router.get("/", findArticle);
-router.get("/hellow", helloArticle);
+router.get("/view/:slug", getsingleArticle);
+router.route("/edit/:slug").get(editsingleArticle);
+router.get("/createe", createeArticle);

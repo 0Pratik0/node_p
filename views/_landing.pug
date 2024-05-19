@@ -1,0 +1,24 @@
+nav.bg-indigo-300.w-full.h-14.flex.justify-between.px-4.items-center(class='md:px-4')
+  .text-white.font-bold.text-4xl Blogpot
+  ul.hidden.font-semibold(class='md:flex')
+    li.cursor-pointer(class='mx-[10px]') Home
+    li.cursor-pointer(class='mx-[10px]') About Us
+    li.cursor-pointer(class='mx-[10px]') Contact Us
+  button.hidden.px-2.py-2.text-white.bg-indigo-500.rounded-lg.font-bold(class='md:block hover:bg-indigo-700') Login/Signup
+a.mx-3(href='articles/createe')  
+  button.mx-2.my-2.overflow-hidden.w-32.p-2.h-12.bg-indigo-300.text-white.border-none.rounded-md.text-xl.font-bold.cursor-pointer.relative.z-10.group New Article
+    span.absolute.w-36.h-32.-top-8.-left-2.bg-sky-200.rotate-12.transform.scale-x-0.transition-transform.duration-1000.origin-right(class='group-hover:scale-x-100 group-hover:duration-500')
+    span.absolute.w-36.h-32.-top-8.-left-2.bg-sky-400.rotate-12.transform.scale-x-0.transition-transform.duration-700.origin-right(class='group-hover:scale-x-100 group-hover:duration-700')
+    span.absolute.w-36.h-32.-top-8.-left-2.bg-sky-600.rotate-12.transform.scale-x-0.transition-transform.duration-500.origin-right(class='group-hover:scale-x-100 group-hover:duration-1000')
+    span.duration-100.opacity-0.absolute.left-6.z-10( class='group-hover:opacity-100 group-hover:duration-1000 top-2.5') Create
+each article in articles
+    .mx-4.my-4.bg-white.w-auto.h-auto.p-5.shadow-md.relative.rounded-md
+    .py-3.px-1
+        .text-4xl.font-sans.flex
+        p.font-bold=article.title.toUpperCase() 
+        p.absolute.right-8.text-lg.text-slate-500=article.createAT.toLocaleString()
+        .text-xl.py-2.font-mono=article.description
+        //- .(class='sm:flex sm:gap-4')
+        a.p-2.bg-indigo-300.mt-2.mx-2.text-white.rounded-md.font-semibold(href=`/articles/view/${article.slug}` class='hover:bg-indigo-700') View
+        a.p-2.bg-indigo-300.mt-2.mx-2.text-white.rounded-md.font-semibold(href=`/articles/edit/${article.slug}` class='hover:bg-indigo-700') Edit
+                //a#view.inline-block.w-full.rounded-lg.bg-emerald-500.px-5.py-3.text-center.text-sm.font-semibold.text-white(href=`/article/${article.slug}` class='sm:w-auto') View
